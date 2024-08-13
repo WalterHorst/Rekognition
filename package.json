@@ -1,0 +1,14 @@
+{
+  "name": "rekognition",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-rekognition": "^3.629.0"
+  }
+}
