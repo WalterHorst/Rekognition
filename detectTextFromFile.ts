@@ -38,7 +38,7 @@ async function detectTextFromFile(imagePath: string, outputFileName: string) {
 }
 
 // Path de la imagen y nombre del archivo de salida
-const imagePath = path.join(__dirname, "imagen-de-ejemplo.jpg"); // Ajusta la ruta de la imagen según sea necesario
+const imagePath = path.join(__dirname, "dni-argentina.webp"); // Ajusta la ruta de la imagen según sea necesario
 const outputFileName = path.join(__dirname, "texto_detectado.json");
 
 // Ejecuta la función
