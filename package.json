@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-rekognition": "^3.629.0"
+    "@aws-sdk/client-rekognition": "^3.629.0",
+    "create-next-app": "^14.2.5"
   }
 }
