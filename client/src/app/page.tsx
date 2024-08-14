@@ -1,55 +1,29 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
+import useWebcam from "@/hooks/useWebcam";
+
 const App: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const openWebcam = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
-    } catch (err) {
-      console.error("Error accessing webcam: ", err);
-    }
-  };
-  const takePhoto = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
-    if (canvas && video) {
-      const context = canvas.getContext("2d");
-      if (context) {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const image = canvas.toDataURL("image/png");
-        console.log(image);
-      } else {
-        console.error("No se pudo obtener el contexto 2D del canvas.");
-      }
-    } else {
-      console.error("Canvas o video no están definidos.");
-    }
-  };
+  const { canvasRef, videoRef, openWebcam, takePhoto } = useWebcam();
+
   return (
-    <main
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-      }}
-    >
+    <main className="flex flex-col items-center justify-center gap-10 size-full">
       <div>
-        <button onClick={openWebcam}>Abrir camara</button>
-        <button onClick={takePhoto} style={{ marginLeft: "10px" }}>
+        <button
+          onClick={openWebcam}
+          className="border border-black rounded-xl p-2"
+        >
+          Abrir camara
+        </button>
+        <button
+          onClick={takePhoto}
+          className="border border-black rounded-xl p-2 ml-2"
+        >
           Tomar foto
         </button>
       </div>
-      <section style={{ display: "flex", gap: "10px" }}>
+      <section className="flex flex-wrap justify-center gap-2 max-w-full">
         <video ref={videoRef} autoPlay />
-        <canvas ref={canvasRef} width={640} height={480} />
+        <canvas ref={canvasRef} className="max-w-full" />
       </section>
     </main>
   );
