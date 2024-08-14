@@ -6,7 +6,13 @@ import * as fs from "fs";
 import * as path from "path";
 
 // Configuración del cliente de Rekognition
-const rekognitionClient = new RekognitionClient({ region: "us-west-2" });
+const rekognitionClient = new RekognitionClient({
+  region: "us-west-2",
+  credentials: {
+    accessKeyId: `${process.env.ACCES_KEY}`,
+    secretAccessKey: `${process.env.SECRET_KEY}`,
+  },
+});
 
 async function detectTextFromFile(imagePath: string, outputFileName: string) {
   try {
