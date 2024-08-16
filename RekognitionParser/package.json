@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/qrcode": "^1.5.5",
     "@zxing/library": "^0.21.2",
+    "aspose-barcode-cloud-node": "^24.7.0",
     "canvas": "^2.11.2",
     "dynamsoft-javascript-barcode": "^9.6.42",
     "dynamsoft-node-barcode": "^8.8.7",
@@ -24,6 +25,7 @@
     "jimp": "^0.22.12",
     "jsbarcode": "^3.11.6",
     "jsqr": "^1.4.0",
+    "mrz": "^4.2.0",
     "node-zxing": "^0.1.4",
     "qrcode-reader": "^1.0.4",
     "sharp": "^0.33.4",
