@@ -309,7 +309,7 @@ export class RekognitionReader {
   }
 
   #loadNameInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA NOMBRE / NAME
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
       const text = row.DetectedText.trim().toUpperCase();
       return text.includes("NOMBRE") && text.includes("NAME");
@@ -328,12 +328,12 @@ export class RekognitionReader {
   }
 
   #loadBirthdateInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA Fecha de nacimiento / Date of birth
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
+      const text = row.DetectedText.trim().toUpperCase();
       return (
-        (row.DetectedText.trim().toUpperCase().includes("FECHA") ||
-          row.DetectedText.trim().toUpperCase().includes("DATE")) &&
-        row.DetectedText.trim().toUpperCase().includes("BIRTH")
+        (text.includes("FECHA") || text.includes("DATE")) &&
+        text.includes("BIRTH")
       );
     });
 
@@ -377,12 +377,10 @@ export class RekognitionReader {
   }
 
   #loadExpirationDateInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA Fecha de nacimiento / Date of birth
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
-      return (
-        row.DetectedText.trim().toUpperCase().includes("VENCIMIENTO") ||
-        row.DetectedText.trim().toUpperCase().includes("EXPIRY")
-      );
+      const text = row.DetectedText.trim().toUpperCase();
+      return text.includes("VENCIMIENTO") || text.includes("EXPIRY");
     });
 
     const elementosOrdenados = this.#getElementsWithLabelReference(
@@ -440,12 +438,10 @@ export class RekognitionReader {
   }
 
   #loadSexInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA Fecha de nacimiento / Date of birth
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
-      return (
-        row.DetectedText.trim().toUpperCase().includes("SEXO") &&
-        row.DetectedText.trim().toUpperCase().includes("SEX")
-      );
+      const text = row.DetectedText.trim().toUpperCase();
+      return text.includes("SEXO") && text.includes("SEX");
     });
 
     const elementosOrdenados = this.#getElementsWithLabelReference(
@@ -590,7 +586,7 @@ export class RekognitionReader {
   }
 
   #loadIndentityDocumentInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA DOCUMENT
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
       return row.DetectedText.trim().toUpperCase().includes("DOCUMENT");
     });
@@ -619,12 +615,10 @@ export class RekognitionReader {
   }
 
   #loadLastNameInTexts() {
-    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA APELLIDO / SURNAME
+    // PRIMER PASO, OBTENGO EL INDICE DE LA LEYENDA
     const indice_leyenda = this.#LABELS_FRONT.findIndex((row: any) => {
-      return (
-        row.DetectedText.trim().toUpperCase().includes("APELLIDO") &&
-        row.DetectedText.trim().toUpperCase().includes("SURNAME")
-      );
+      const text = row.DetectedText.trim().toUpperCase();
+      return text.includes("APELLIDO") && text.includes("SURNAME");
     });
 
     const elementosOrdenados = this.#getElementsWithLabelReference(
