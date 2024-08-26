@@ -1,0 +1,22 @@
+{
+  "name": "rekognitionparser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-rekognition": "^3.632.0",
+    "@types/qrcode": "^1.5.5",
+    "node-zxing": "^0.1.4"
+  }
+}
